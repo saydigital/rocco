@@ -1,0 +1,34 @@
+version: "3"
+
+volumes:
+  odoodata:
+  pgdata:
+
+services:
+  web:
+      build: .
+      image: {{cookiecutter.project_code}}/odoo-docker-image:{{cookiecutter.odoo_version}}
+      container_name: {{cookiecutter.project_code}}_odoo
+      ports:
+        - "8069:8069"
+        - "8072:8072"
+      depends_on:
+        - db
+      volumes:
+        - "./etc:/rocco/etc"
+        - "odoodata:/rocco/data"
+        # - "./{{cookiecutter.github_addons_repo_name}}:/parts/project_addons"
+      user: "101:101"
+
+  db:
+    image: postgres:13.4
+    container_name: {{cookiecutter.project_code}}_postgres
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - "pgdata:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      # Don't alter POSTGRES_DB (see: https://github.com/odoo/odoo/issues/27447#issuecomment-427840100)
+      - POSTGRES_DB=postgres

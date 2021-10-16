@@ -1,0 +1,12 @@
+*.py[oc]
+__pycache__
+
+odoo/project_addons
+odoo/.deploy-key
+odoo/.deploy-key.pub
+
+deploy/venv
+deploy/roles/*
+deploy/*.retry
+
+storage

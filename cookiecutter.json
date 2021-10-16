@@ -1,0 +1,14 @@
+{
+  "git_name": "Andrea Colangelo",
+  "git_email": "andrea.colangelo@rapsodoo.com",
+  "project_name": "My ROCCO Project",
+  "project_code": "{{cookiecutter.project_name| lower |replace(' ', '-')}}",
+  "odoo_version": "14.0, 15.0",
+  "github_repo_name": "{{[cookiecutter.project_code, 'docker-env']| join('-') | lower | replace(' ', '-')}}",
+  "github_repo_user": "saydigital",
+  "github_addons_repo_name": "{{[cookiecutter.project_code, '_addons']| join('') | lower | replace(' ', '-')}}",
+  "github_addons_repo_user": "{{cookiecutter.github_repo_user}}",
+  "github_addons_repo_branch": "{{cookiecutter.odoo_version}}",
+  "admin_password": "{{ random_ascii_string(16) }}",
+  "github_token": "Please create one at https://github.com/settings/tokens"
+}
