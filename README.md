@@ -29,15 +29,18 @@ You will be asked a few parameters, including the name and organization for both
 - Submodules whose path inside the addons repo don't match their GitHub repo names are not properly handled. This will be fixed in a future release.
 
 ## Contributing
-Pull requests are welcome. For major changes, please [open an issue](https://github.com/saydigital/rocco/issues) first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please [open an issue](https://github.com/saydigital/rocco/issues) first to discuss what you would like to change. If your code is accepted in ROCCO, please proudly add your name to the Credits section here below.
 
 ## Credits
 Thanks to [Francesco Apruzzese](https://github.com/opencode) for inventing the name of this long and durable piece of software.
 
 ROCCO is based on ideas inspired by several different friend working at several different companies. Thank you all for sharing ideas, concepts, technologies and hints that brought to the creation of this tool.
 
-## License
-Copyright 2021 © Andrea Colangelo <andrea.colangelo@gmail.com>.
+Code and bugs made with ❤️ by [Andrea Colangelo](https://andreacolangelo.dev/).
 
-This software is released under the terms of the
-[WTFPL](http://www.wtfpl.net/txt/copying/).
+## The boring stuff
+Copyright 2021 © Andrea Colangelo <andrea.colangelo@rapsodoo.com> and Rapsodoo Italia SrL <https://www.rapsodoo.com/>.
+
+ROCCO is free software, and is released under the terms of the [WTFPL](http://www.wtfpl.net/txt/copying/).
+
+ROCCO is provided as is, without warranties of any kind. Use it at your own risk, and don't say you haven't been warned.
