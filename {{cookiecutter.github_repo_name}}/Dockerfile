@@ -25,7 +25,7 @@ RUN python3 -m pip install -r requirements.txt
 # Switch back to the standard user
 USER odoo
 
-# Clone code and chage submodules urls to use the provided github token
+# Clone code and chage submodules urls to use the provided GitHub token
 RUN git clone --depth=1 -b {{cookiecutter.github_addons_repo_branch}} https://{{cookiecutter.github_token}}@github.com/{{cookiecutter.github_addons_repo_user}}/{{cookiecutter.github_addons_repo_name}}.git $PROJECT_ADDONS_PATH
 RUN git clone --depth=1 -b {{cookiecutter.odoo_version}} https://{{cookiecutter.github_token}}@github.com/odoo/enterprise.git $ENTERPRISE_PATH
 ADD bin/ $ROCCO_PATH/bin
