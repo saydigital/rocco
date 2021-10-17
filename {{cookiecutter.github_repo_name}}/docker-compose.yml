@@ -16,9 +16,8 @@ services:
         - db
       volumes:
         - "./etc:/rocco/etc"
-        - "odoodata:/rocco/data"
+        - "odoodata:/var/odoo"
         # - "./{{cookiecutter.github_addons_repo_name}}:/parts/project_addons"
-      user: "101:101"
 
   db:
     image: postgres:13.4
