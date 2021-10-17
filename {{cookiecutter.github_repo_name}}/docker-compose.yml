@@ -5,7 +5,7 @@ volumes:
   pgdata:
 
 services:
-  web:
+  odoo:
       build: .
       image: {{cookiecutter.project_code}}/odoo-docker-image:{{cookiecutter.odoo_version}}
       container_name: {{cookiecutter.project_code}}_odoo

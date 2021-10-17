@@ -1,9 +1,9 @@
 # ROCCO: the Rapsodoo Original CookieCutter for Odoo
 ## A long and durable piece of software
 
-ROCCO is your swiss-army knife to build Docker Environments for Odoo. It has been designed to replicate odoo.sh projects locally by just providing a valid GitHub Token and the main GitHub repo. Once ROCCO has done all its magic, you can `docker-compose up` a perfect replica of your odoo.sh project, submodules included. It can also be used the other way around, that is: to build a Docker Environments uwith an addons repo that will eventually build an odoo.sh project.
+ROCCO is your swiss-army knife to build Docker Environments for Odoo. It has been designed to replicate odoo.sh projects locally by just providing a valid GitHub Token and the main GitHub repo. Once ROCCO has done all of its magic, you can `docker-compose up` a perfect replica of your odoo.sh project, submodules included. It can also be used the other way around, that is: to build a Docker Environments with an addons repo that will eventually build an odoo.sh project.
 
-ROCCO is based on the standard Odoo Docker images, and comes with Odoo Enterprise included by default. In case you don't want to use Odoo Enterprise, just comment out the corresponding line in the Dockerfile once you have built your docker-env. In the same way, feel free to customize the resulting template at your wish if you need to change its behaviour.
+ROCCO is based on the standard [Odoo Docker images](https://hub.docker.com/_/odoo), and comes with Odoo Enterprise included by default. In case you don't want to use Odoo Enterprise, just comment out the corresponding line in the Dockerfile once you have built your docker-env. In the same way, feel free to customize the resulting template at your wish if you need to change its behaviour.
 
 ## Usage
 
@@ -26,17 +26,18 @@ You will be asked a few parameters, including the name and organization for both
 - The default odoo data directory is different from the one provided by the standard Odoo Docker Image. This is needed to prevent permission issues when the volume is re-declared in the composefile
 
 ## FIXME
-- Submodules whose path inside the addons repo doesn't match their github repo name are not properly handled. This will be fixed in a future release.
+- Submodules whose path inside the addons repo don't match their GitHub repo names are not properly handled. This will be fixed in a future release.
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please [open an issue](https://github.com/saydigital/rocco/issues) first to discuss what you would like to change.
 
 ## Credits
-Thanks to Francesco Apruzzese for providing the name of this long and durable piece of software.
+Thanks to [Francesco Apruzzese](https://github.com/opencode) for inventing the name of this long and durable piece of software.
 
-ROCCO is based on ideas inspired by several different people of several different companies. Thank you all for sharing ideas, concepts, technologies and hints for this tool.
+ROCCO is based on ideas inspired by several different friend working at several different companies. Thank you all for sharing ideas, concepts, technologies and hints that brought to the creation of this tool.
 
 ## License
-Copyright 2021 Andrea Colangelo <andrea.colangelo@gmail.com>.
+Copyright 2021 © Andrea Colangelo <andrea.colangelo@gmail.com>.
+
 This software is released under the terms of the
 [WTFPL](http://www.wtfpl.net/txt/copying/).

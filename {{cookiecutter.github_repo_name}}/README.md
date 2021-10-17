@@ -18,11 +18,11 @@ $ docker-compose up -d
 
 ## Configuration tuning
 
-To edit configuration, just change etc/odoo.conf, which is a standard odoo configuration file, then restart the container. `addons_path` will be automatically derived from your addons repo and the conffile will be generated before starting odoo. All other options will be taken from this file.
+To edit configuration, just change etc/odoo.conf, which is a standard odoo configuration file, then restart the container. `addons_path` will be automatically derived from your addons repo and the conffile will be generated before starting odoo. All other options will be taken from this file verbatim.
 
 ## Add new addons
 
-To add new addons, add them as submodules to your addons repo and rebuild/recreate your image/container `odoo_conf_generator.py` will automatically pick them up and add  themeto the Odoo configuration file at runtime.
+To add new addons, add them as submodules to your addons repo and rebuild/recreate your image/container. `odoo_conf_generator.py` will automatically pick them up and add them to the Odoo configuration file at runtime.
 
 ## Add new Python dependencies
 
@@ -34,7 +34,7 @@ You can start an Odoo shell by launching `docker-compose run --rm odoo shell -d 
 
 ## Debugging
 
-There are times when you need to make some debug and maybe you need to put a breakpoint somewhere. This can be done by adding new `volumes` to the odoo container. For example, if you want to add a breakpoint in your own code, run :
+For example, if you want to add a breakpoint for debugging in your own code, run :
 
 ```
 git clone https://{{cookiecutter.github_token}}@github.com/{{cookiecutter.github_addons_repo_user}}/{{cookiecutter.github_addons_repo_name}}.git
@@ -49,7 +49,7 @@ volumes:
   - "./{{cookiecutter.github_addons_repo_name}}:/parts/project_addons"
 ```
 
-Then, to have the interpreter available to you when the breakpoint is catched, just run docker-compose run:
+Then, add your (i)pdb breakpoint in your code. To have the interpreter available to you when the breakpoint is reached, just run docker-compose run:
 
 ```
 docker-compose run --rm --service-ports odoo
@@ -57,4 +57,6 @@ docker-compose run --rm --service-ports odoo
 
 ## About
 
-This Docker Environment has been built with ROCCO, the Rapsodoo Original CookieCutter for Odoo. For more information: https://www.github.com/saydigital/rocco.
+This Docker Environment has been built by ROCCO, the Rapsodoo Original CookieCutter for Odoo.
+
+For more information: https://www.github.com/saydigital/rocco.

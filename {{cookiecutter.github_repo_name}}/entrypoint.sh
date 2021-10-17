@@ -1,6 +1,6 @@
 #!/bin/bash
 # This file has been taken as is from odoo/docker and changed to allow rebuilding the Odoo conffile at runtime.
-# It also adds a shell command to run an Odoo shell
+# It also adds a shell command to run an Odoo shell.
 
 set -e
 
