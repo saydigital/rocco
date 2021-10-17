@@ -23,9 +23,9 @@ You will be asked a few parameters, including the name and organization for both
 - A proxy server is not provided by the docker-compose orchestration.
 - Accessing different submodules/repos with different github tokens (or with other mean of authentication) is not possible at the moment.
 - Submodules are added to the odoo configuration addons_path in alphabetical order. This is meant to reproduce an undocumented feature of Odoo.sh
+- The default odoo data directory is different from the one provided by the standard Odoo Docker Image. This is needed to prevent permission issues when the volume is re-declared in the composefile
 
 ## FIXME
-- Permissions of the filestore directory are not properly handled. This may result in Odoo not being able to respond to HTTP requests. You can try and manually set permissions on the running container to work around this problem until I fix it once and for all.
 - Submodules whose path inside the addons repo doesn't match their github repo name are not properly handled. This will be fixed in a future release.
 
 ## Contributing
