@@ -16,6 +16,10 @@ Then run cookicutter passing it the directory containing this template
 ```bash
 python3 -m cookiecutter .
 ```
+or run
+```bash
+cookiecutter gh:saydigital/rocco
+```
 
 You will be asked a few parameters, including the name and organization for both the addons repo and the docker-env repo. Then, the actual docker-env folder will be available for you. It will be automatically linked to the project addons repo you entered.
 
