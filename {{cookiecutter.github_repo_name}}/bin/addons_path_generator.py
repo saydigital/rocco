@@ -24,8 +24,11 @@ if __name__ == '__main__':
     ]
     # Sorting is needed to simulate an undocumented feature of odoo.sh and let
     # this docker-env behave just like that
-    submodules = ','.join(sorted(submodules))
-    addons_path = ','.join([ADDONS_PATH, ENTERPRISE_PATH, submodules])
+    paths = [ADDONS_PATH, ENTERPRISE_PATH]
+    if submodules:
+        submodules = ','.join(sorted(submodules))
+        paths.append(submodules)
+    addons_path = ','.join(paths)
 
     parser = ConfigParser()
     parser.read(OODO_CONF_TEMPLATE_PATH)
