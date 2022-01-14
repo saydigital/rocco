@@ -15,7 +15,10 @@ ENV ROCCO_PATH /rocco
 ENV DATA_PATH /var/odoo
 ENV PROJECT_ADDONS_PATH $PARTS_PATH/project_addons
 ENV ENTERPRISE_PATH $PARTS_PATH/enterprise
-RUN mkdir -m 777 -p $DATA_PATH $ROCCO_PATH $PROJECT_ADDONS_PATH $ENTERPRISE_PATH
+# This path can be used to mount the submodule during development,
+# before making them active on the remote repo
+ENV DUMMY_SUBMODULE_PATH $PARTS_PATH/dummy_submodule
+RUN mkdir -m 777 -p $DATA_PATH $ROCCO_PATH $PROJECT_ADDONS_PATH $ENTERPRISE_PATH $DUMMY_SUBMODULE_PATH
 RUN chown -R odoo:odoo $ROCCO_PATH $PARTS_PATH $DATA_PATH
 
 # Install Python libraries

@@ -9,7 +9,7 @@ if [ -v PASSWORD_FILE ]; then
 fi
 
 # Rebuild the Odoo Configuration File
-python3 /rocco/bin/addons_path_generator.py /parts/project_addons /parts/enterprise /rocco/etc/odoo.conf /etc/odoo/odoo.conf
+python3 /rocco/bin/addons_path_generator.py /parts/project_addons /parts/enterprise /parts/dummy_submodule /rocco/etc/odoo.conf /etc/odoo/odoo.conf
 
 # set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file

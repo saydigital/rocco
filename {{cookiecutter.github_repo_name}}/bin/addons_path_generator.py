@@ -10,8 +10,9 @@ from git import Repo
 
 ADDONS_PATH = sys.argv[1]
 ENTERPRISE_PATH = sys.argv[2]
-OODO_CONF_TEMPLATE_PATH = sys.argv[3]
-ODOO_CONF_PATH = sys.argv[4]
+DUMMY_SUBMODULE_PATH = sys.argv[3]
+OODO_CONF_TEMPLATE_PATH = sys.argv[4]
+ODOO_CONF_PATH = sys.argv[5]
 
 if __name__ == '__main__':
     os.chdir(ADDONS_PATH)
@@ -24,7 +25,7 @@ if __name__ == '__main__':
     ]
     # Sorting is needed to simulate an undocumented feature of odoo.sh and let
     # this docker-env behave just like that
-    paths = [ADDONS_PATH, ENTERPRISE_PATH]
+    paths = [ADDONS_PATH, ENTERPRISE_PATH, DUMMY_SUBMODULE_PATH]
     if submodules:
         submodules = ','.join(sorted(submodules))
         paths.append(submodules)
