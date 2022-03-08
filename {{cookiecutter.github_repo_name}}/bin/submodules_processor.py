@@ -17,10 +17,8 @@ if __name__ == '__main__':
     for submodule in repo.iter_submodules():
         if submodule.url.startswith("git@"):
             # All github SSH repos are like git@github.com:<repo_name>.git
-            github_string = "@github.com:"
-            base_index = submodule.url.find(github_string)
-            repo_infos_index = base_index + len(github_string)
-            repo_infos_str = submodule.url[repo_infos_index:]
+            starting_index = submodule.url.find(":") + 1
+            repo_infos_str = submodule.url[starting_index:]
             key = f'submodule "{submodule.name}"'
             value = f'https://{GITHUB_TOKEN}@github.com/{repo_infos_str}'
             repo.config_writer().set_value(key, 'url', value).release()
