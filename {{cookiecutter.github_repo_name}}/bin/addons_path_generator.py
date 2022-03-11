@@ -31,8 +31,8 @@ if __name__ == '__main__':
         submodules = ','.join(sorted(submodules))
         paths.append(submodules)
     # Check YAML FILE if custom PATHS are inserted
-    with open('/rocco/etc/extra_addons_path.yaml', 'r') as extra_addons_path:
-        extra_addons_file = yaml.load(extra_addons_path, Loader=yaml.FullLoader)
+    with open('/rocco/etc/extra_rocco_conf.yaml', 'r') as extra_rocco_conf:
+        extra_addons_file = yaml.load(extra_rocco_conf, Loader=yaml.FullLoader)
         extra_addons_list = extra_addons_file.get("addons_path")
         if extra_addons_list:
             paths.extend(extra_addons_list)

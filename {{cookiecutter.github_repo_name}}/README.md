@@ -32,7 +32,7 @@ volumes:
   - "/<your>/<local>/<path>/<addons>:/parts/<extra_addons_dir>"
 ```
 
-And after that just add the new addons_path `/parts/<extra_addons_dir>` inside the yaml file located in `/etc/extra_addons_path.yaml` like that:
+And after that just add the new addons_path `/parts/<extra_addons_dir>` inside the yaml file located in `/etc/extra_rocco_conf.yaml` like that:
 
 ```
 addons_path:
