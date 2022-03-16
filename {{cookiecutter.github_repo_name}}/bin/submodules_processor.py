@@ -16,8 +16,11 @@ if __name__ == '__main__':
     repo = Repo()
     for submodule in repo.iter_submodules():
         if submodule.url.startswith("git@"):
+            # All github SSH repos are like git@github.com:<repo_name>.git
+            starting_index = submodule.url.find(":") + 1
+            repo_infos_str = submodule.url[starting_index:]
             key = f'submodule "{submodule.name}"'
-            value = f'https://{GITHUB_TOKEN}@github.com/{submodule.name}.git'
+            value = f'https://{GITHUB_TOKEN}@github.com/{repo_infos_str}'
             repo.config_writer().set_value(key, 'url', value).release()
     # This must be necessarily done via subprocess because GitPython will use
     # the URL found in .gitmodules
