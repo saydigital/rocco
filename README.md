@@ -23,6 +23,25 @@ cookiecutter gh:saydigital/rocco
 
 You will be asked a few parameters, including the name and organization for both the addons repo and the docker-env repo. Then, the actual docker-env folder will be available for you. It will be automatically linked to the project addons repo you entered.
 
+## Tools
+
+ROCCO is released with a number of tools that can help developers to manage their environments
+
+### Db Safe for Dev
+
+This script eliminates from the database all possible configurations and data that can generate problems:
+ - Set admin user login and password as "admin"
+ - Set other users password as "test"
+ - Disable all the mail server
+ - Disable all the cron
+ - Change database UUID
+
+How to use it
+
+```bash
+./tools/db-safe-for-dev.sh -d DATABASE_NAME
+```
+
 ## Caveats
 - A proxy server is not provided by the docker-compose orchestration.
 - Accessing different submodules/repos with different github tokens (or with other mean of authentication) is not possible at the moment.
