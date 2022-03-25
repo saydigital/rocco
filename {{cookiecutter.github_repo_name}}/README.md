@@ -24,6 +24,23 @@ To edit configuration, just change etc/odoo.conf, which is a standard odoo confi
 
 To add new addons, add them as submodules to your addons repo and rebuild/recreate your image/container. `odoo_conf_generator.py` will automatically pick them up and add them to the Odoo configuration file at runtime.
 
+Or alternatively it's possibile to link the desired repositories as external volumes inside `docker-compose.yml` like that:
+
+```
+volumes:
+  ...
+  - "/<your>/<local>/<path>/<addons>:/parts/<extra_addons_dir>"
+```
+
+And after that just add the new addons_path `/parts/<extra_addons_dir>` inside the yaml file located in `/etc/extra_rocco_conf.yaml` like that:
+
+```
+addons_path:
+    - /parts/<extra_addons_dir>
+```
+`addons_path_generator.py` will automatically pick them up and add them at the end of addons_path inside `odoo.conf` file.
+The last method doesn't require an image rebuild.
+
 ## Add new Python dependencies
 
 To add new Python dependencies, add them to the file `requirements.txt` if it is related to this specific Docker Environment, or to the same file in your addons repo if it's related to Odoo and your specific project. Then rebuild and recreate your images and containers.
