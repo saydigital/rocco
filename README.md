@@ -42,6 +42,16 @@ How to use it
 ./tools/db-safe-for-dev.sh -d DATABASE_NAME
 ```
 
+### Restore Database
+
+This script restore an sql file restore
+
+How to use it
+
+```bash
+./tools/restore-db.sh -d DATABASE_NAME -f /DATABASE/RESTORE/FILE.sql
+```
+
 ## Caveats
 - A proxy server is not provided by the docker-compose orchestration.
 - Accessing different submodules/repos with different github tokens (or with other mean of authentication) is not possible at the moment.
