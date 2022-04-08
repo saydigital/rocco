@@ -8,10 +8,7 @@ USER root
 ENV _UPDATED 2022-04-08
 
 # Install missing useful stuff
-RUN apt-get update && apt-get install -y git vim curl wget python3-wheel \
-    build-essential python3-pip python3-dev libffi-dev xfonts-75dpi \
-    xfonts-base libsasl2-dev libldap2-dev libssl-dev zlib1g-dev libpq-dev \
-    libpq-dev libxml2-dev libxslt1-dev
+RUN apt-get update && apt-get install -y git vim curl wget python3-wheel build-essential python3-dev libffi-dev
 
 # Create needed paths
 ENV PARTS_PATH /parts
