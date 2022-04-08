@@ -70,7 +70,6 @@ How to use it
 
 ## FIXME
 - Submodules whose path inside the addons repo don't match their GitHub repo names are not properly handled. This will be fixed in a future release.
-- Requirements from the submodules are not installed. This woo will be handled later on.
 
 ## Contributing
 Pull requests are welcome. For major changes, please [open an issue](https://github.com/saydigital/rocco/issues) first to discuss what you would like to change. If your code is accepted in ROCCO, please proudly add your name to the Credits section here below.
