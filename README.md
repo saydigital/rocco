@@ -52,6 +52,16 @@ How to use it
 ./tools/restore-db.sh -d DATABASE_NAME -f /DATABASE/RESTORE/FILE.sql
 ```
 
+### Restore Filestore
+
+This script restore filestore files decompressed from Odoo backup
+
+How to use it
+
+```bash
+./tools/restore-filestore.sh -d DATABASE_NAME -f /DATABASE/RESTORE/FILESTORE/PATH -r DOCKER_RUNNING_NAME
+```
+
 ## Caveats
 - A proxy server is not provided by the docker-compose orchestration.
 - Accessing different submodules/repos with different github tokens (or with other mean of authentication) is not possible at the moment.
