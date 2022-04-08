@@ -4,9 +4,14 @@ LABEL maintainer={{cookiecutter.git_email}}
 # Switch to super user to perform privileged operatiosn
 USER root
 
+# Change this value to regenerate the whole image
+ENV _UPDATED 2022-04-08
+
 # Install missing useful stuff
-RUN apt-get update
-RUN apt-get install -y git vim curl wget python3-wheel build-essential python3-dev libffi-dev
+RUN apt-get update && apt-get install -y git vim curl wget python3-wheel \
+    build-essential python3-pip python3-dev libffi-dev xfonts-75dpi \
+    xfonts-base libsasl2-dev libldap2-dev libssl-dev zlib1g-dev libpq-dev \
+    libpq-dev libxml2-dev libxslt1-dev
 
 # Create needed paths
 ENV PARTS_PATH /parts
@@ -34,8 +39,8 @@ RUN git clone --depth=1 -b {{cookiecutter.odoo_version}} https://{{cookiecutter.
 ADD bin/ $ROCCO_PATH/bin
 RUN python3 $ROCCO_PATH/bin/submodules_processor.py $PROJECT_ADDONS_PATH {{cookiecutter.github_token}}
 
-# Install Addons Repo Requirements
-RUN if [ -f "$PROJECT_ADDONS_PATH/requirements.txt" ]; then python3 -m pip install -r $PROJECT_ADDONS_PATH/requirements.txt; fi
+# Install Addons Repo Requirements, this will drill down and find all requirements files
+RUN find "$PROJECT_ADDONS_PATH" -name "requirements.txt" -exec pip3 install -r {} \;
 
 # Configure git, just in case
 RUN git config --global user.email "{{cookiecutter.git_email}}"; \
