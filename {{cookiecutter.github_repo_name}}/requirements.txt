@@ -1,3 +1,4 @@
 # Add your non Odoo-related python dependencies here
 wheel
 GitPython
+PyYAML==5.3.1
