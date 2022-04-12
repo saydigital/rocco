@@ -40,7 +40,7 @@ shift $(("$OPTIND" - 1))
 # Change database UUID
 echo "Change database UUID"
 new_uuid=$(uuidgen)
-docker exec {{cookiecutter.project_code}}_postgres psql -U odoo -d "$dbname"-c "UPDATE ir_config_parameter SET value = '${new_uuid}' WHERE key='database.uuid';" "$@"
+docker exec {{cookiecutter.project_code}}_postgres psql -U odoo -d "$dbname" -c "UPDATE ir_config_parameter SET value = '${new_uuid}' WHERE key='database.uuid';" "$@"
 echo "New UUID: ${new_uuid}"
 
 # Disable Mail Server
