@@ -36,8 +36,12 @@ RUN git clone --depth=1 -b {{cookiecutter.odoo_version}} https://{{cookiecutter.
 ADD bin/ $ROCCO_PATH/bin
 RUN python3 $ROCCO_PATH/bin/submodules_processor.py $PROJECT_ADDONS_PATH {{cookiecutter.github_token}}
 
+# It looks like Python requirements must be installed as root, otherwise odoo (the software) won't see them if we install them as odoo (user) :-|
+USER root
 # Install Addons Repo Requirements, this will drill down and find all requirements files
 RUN find "$PROJECT_ADDONS_PATH" -name "requirements.txt" -exec pip3 install -r {} \;
+# Switch back to the standard user again
+USER odoo
 
 # Configure git, just in case
 RUN git config --global user.email "{{cookiecutter.git_email}}"; \
