@@ -70,4 +70,8 @@ users_password=$(python3 -c "$python_code")
 echo "New password: test (${users_password})"
 docker exec {{cookiecutter.project_code}}_postgres psql -U odoo -d "$dbname" -c "UPDATE res_users SET password = '${users_password}' WHERE id != 2;" "$@"
 
+# Disable push notification for Odoo app
+echo "Disable push notification for Odoo app"
+docker exec {{cookiecutter.project_code}}_postgres psql -U odoo -d "$dbname" -c "UPDATE ir_config_parameter SET value = 'False' WHERE key IN ('mail_mobile.enable_ocn', 'odoo_ocn.project_id');" "$@"
+
 exit 0
