@@ -3,7 +3,7 @@
   "git_email": "andrea.colangelo@rapsodoo.com",
   "project_name": "My ROCCO Project",
   "project_code": "{{cookiecutter.project_name| lower |replace(' ', '-')}}",
-  "odoo_version": "14.0, 15.0",
+  "odoo_version": "14.0, 15.0, 16.0",
   "github_repo_name": "{{[cookiecutter.project_code, 'docker-env']| join('-') | lower | replace(' ', '-')}}",
   "github_repo_user": "saydigital",
   "github_addons_repo_name": "{{[cookiecutter.project_code, '_addons']| join('') | lower | replace(' ', '-')}}",
