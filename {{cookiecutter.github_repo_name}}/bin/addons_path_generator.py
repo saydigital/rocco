@@ -6,7 +6,7 @@ import os
 import sys
 
 from configparser import ConfigParser
-from git import Repo
+from git import Repo, db
 import yaml
 
 ADDONS_PATH = sys.argv[1]
@@ -17,12 +17,12 @@ ODOO_CONF_PATH = sys.argv[5]
 
 if __name__ == '__main__':
     os.chdir(ADDONS_PATH)
-    repo = Repo()
+    repo = Repo(".", odbt=db.GitDB)
 
     submodules = [
         os.path.join(ADDONS_PATH, submodule.path)
         for submodule
-        in repo.iter_submodules()
+        in repo.submodules
     ]
     # Sorting is needed to simulate an undocumented feature of odoo.sh and let
     # this docker-env behave just like that
