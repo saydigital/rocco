@@ -19,6 +19,31 @@ services:
         - "odoodata:/var/odoo"
         # - "./{{cookiecutter.github_addons_repo_name}}:/parts/project_addons"
 
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name:  {{cookiecutter.project_code}}_pg_admin
+    restart: always
+    entrypoint: >
+      /bin/sh -c "
+      cp -f /pgadmin4/pgpass /var/lib/pgadmin/;
+      chmod 600 /var/lib/pgadmin/pgpass;
+      chown pgadmin:pgadmin /var/lib/pgadmin/pgpass;
+      /entrypoint.sh
+      "
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    volumes:
+      - "./etc/pgadmin4/servers.json:/pgadmin4/servers.json"
+      - "./etc/pgadmin4/pgpass:/pgpass"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False
+      # Set SERVER_MODE = True in production to enable login page
+      - PGADMIN_CONFIG_SERVER_MODE=False
+
   db:
     image: postgres:{{"14.5" if cookiecutter.odoo_version == "16.0" else "13.4"}}
     container_name: {{cookiecutter.project_code}}_postgres
