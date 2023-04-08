@@ -62,6 +62,13 @@ How to use it
 ./tools/restore-filestore.sh -d DATABASE_NAME -f /DATABASE/RESTORE/FILESTORE/PATH -r DOCKER_RUNNING_NAME
 ```
 
+### PgAdmin4
+
+Rocco has an instance of PgAdmin4 accessible from the browser.
+PgAdmin4 is already auto-configured to access the odoo db.
+
+To use it, open the url of your localhost at port `:5050`
+
 ## Caveats
 - A proxy server is not provided by the docker-compose orchestration.
 - Accessing different submodules/repos with different github tokens (or with other mean of authentication) is not possible at the moment.
