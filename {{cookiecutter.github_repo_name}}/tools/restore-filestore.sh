@@ -38,7 +38,7 @@ done
 shift $(("$OPTIND" - 1))
 
 # check for all options
-: "${dbname:?Missing -d option}" "${dbfile:?Missing -f option}" "${dockerrun:?Missing -r option}"
+: "${dbname:?Missing -d option}" "${filestorepath:?Missing -f option}" "${dockerrun:?Missing -r option}"
 
 echo "Restoring filestore $filestorepath for database $dbname in docker $dockerrun"
 # Move files
