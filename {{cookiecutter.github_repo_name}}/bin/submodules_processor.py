@@ -6,15 +6,15 @@ import os
 import subprocess
 import sys
 
-from git import Repo
+from git import Repo, db
 
 ADDONS_PATH = sys.argv[1]
 GITHUB_TOKEN = sys.argv[2]
 
 if __name__ == '__main__':
     os.chdir(ADDONS_PATH)
-    repo = Repo()
-    for submodule in repo.iter_submodules():
+    repo = Repo(".", odbt=db.GitDB)
+    for submodule in repo.submodules:
         if submodule.url.startswith("git@"):
             # All github SSH repos are like git@github.com:<repo_name>.git
             starting_index = submodule.url.find(":") + 1
