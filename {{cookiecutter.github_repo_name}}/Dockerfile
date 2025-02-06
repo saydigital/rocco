@@ -24,6 +24,7 @@ RUN mkdir -m 777 -p $DATA_PATH $ROCCO_PATH $PROJECT_ADDONS_PATH $ENTERPRISE_PATH
 RUN chown -R odoo:odoo $ROCCO_PATH $PARTS_PATH $DATA_PATH
 
 # Install Python libraries
+ENV PIP_BREAK_SYSTEM_PACKAGES 1
 COPY requirements.txt requirements.txt
 RUN python3 -m pip install -r requirements.txt
 
